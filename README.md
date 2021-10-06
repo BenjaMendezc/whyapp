@@ -68,7 +68,7 @@ De esta manera, el par key-value enviado siempre va a tener la key consecutiva a
 
 #### Servidores
 
-Usé la libreria `ws` para crear el websocket y adjuntarlo a un servidor HTTP. El REST endpoint está hecho con `express`
+Usé la libreria `ws` para crear el websocket y adjuntarlo a un servidor HTTP. El REST endpoint está hecho con `express`. Ambos están escuchando en el `puerto 3001`
 
 El servidor **WebSocket** recibe un message con un json que tiene el par key-value y loguea en consola el mensaje recibido. El json se parsea y luego se guarda en la base de datos
 estableciendo una columna para la key y otra para el value. Además, tiene un handler para reconocer si la conexión se cortó desde alguna de las partes. El handler consiste
