@@ -19,7 +19,7 @@ mejorar en la implementación.
 
 1- `npm i` para instalar las dependencias
 
-2- Crear archivo .env en la carpeta root con estos datos:
+2- Crear archivo .env en la carpeta principal con estos datos:
 ```
 DB_USERNAME=<tu postgres username>
 DB_PASSWORD=<tu postgres password>
