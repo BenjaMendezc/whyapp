@@ -17,7 +17,9 @@ mejorar en la implementación.
 
 ## Para levantar el proyecto
 
-1- Crear archivo .env en la carpeta root con estos datos:
+1- `npm i` para instalar las dependencias
+
+2- Crear archivo .env en la carpeta root con estos datos:
 ```
 DB_USERNAME=<tu postgres username>
 DB_PASSWORD=<tu postgres password>
@@ -25,9 +27,9 @@ DB_HOST=localhost
 DB_PORT=5432
 DB_DIALECT=postgres
 ```
-2- `npm run build` | crea la base de datos y seedea algunos pares key-value
+3- `npm run build` | crea la base de datos y seedea algunos pares key-value
 
-3- `npm start` | abre el html y levanta el servidor
+4- `npm start` | abre el html y levanta el servidor
 
 Los tests se pueden correr con `npm test`
 
