@@ -1,0 +1,67 @@
+<h1>WhyApp</h1>
+<p>Why should I do anything?</p>
+<h3>You should</h3>
+<button id='fetchReason' onclick="fetchClick()">Because...</button>
+<p id='reason'></p>
+</br>
+</br>
+</br>
+<input type='text' id='newReason' placeholder="Add your own!" />
+<button id='add' title="addReason" onclick="sendMessage()">Add</button>
+
+<script>
+	let key = 1;
+	let lastId;
+
+	const renderReason = document.getElementById('reason')
+	const inputReason = document.getElementById('newReason')
+	const addButton = document.getElementById('add')
+	const fetchButton = document.getElementById('fetchReason')
+	fetchClick =  function(){
+		
+		fetch('http://localhost:3001/whyapp/because/all')
+		.then((res)=>res.json())
+		.then((res)=>{
+			key = Math.floor(Math.random()*((res.length))+1)
+		})
+
+
+		fetch(`http://localhost:3001/whyapp/because?key=${key}`)
+		.then((response)=>response.json())
+		.then((response)=>{
+			console.log(response)
+			renderReason.innerHTML = response.value
+		})
+
+	}
+
+	function sendMessage(){
+		fetch('http://localhost:3001/whyapp/because/all')
+		.then((res)=>res.json())
+		.then((res)=>{
+			lastId = res.length+1
+			ws.send(`{"key":${lastId}, "value":"${inputReason.value}"}`)
+		})
+
+	}
+
+		let ws;
+
+		function init(){
+			if(ws){
+				ws.onerror = ws.onopen = ws.onclose = null
+				ws.close()
+			}
+
+			ws = new WebSocket('ws://localhost:3001')
+			ws.onopen = ()=>{
+				console.log('Connection opened!')
+			}
+			ws.onclose = function(){
+				ws=null
+			}
+		}
+
+	init()
+
+</script>
