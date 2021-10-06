@@ -1,7 +1,7 @@
 # whyapp
 
 Es una pequeña app focalizada en back-end que utiliza websocket y un REST endpoint (las tecnologías requeridas en el challenge). También tiene un html muy simple
-creado solamente para probar la app y jugar un poco, no se va a romper si lo miran muy fuerte pero está limitado de funcionalidades.
+creado solamente para probar la app y jugar un poco. No se va a romper si lo miran muy fuerte pero está limitado de funcionalidades.
 
 Para guardar la información durante sesiones use una base de datos con dialecto `postgres`.
 
